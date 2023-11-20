@@ -1,0 +1,141 @@
+<!--CREATE HTML FILE-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Working Calculator </title>
+
+<style>
+
+table{
+  border: 10px dotted blueviolet; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+input[type="button"]{
+  width: 100%; 
+  padding: 30px 50px;
+  background-color: violet; 
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+}
+
+
+input [type="text"]{ 
+  padding: 20px 30px; 
+  font-size: 24px; 
+  font-weight: bold; 
+  border: 20px solid violet; 
+  color: black;
+  border-radius: 5px;
+}
+
+input:active[type=button] {
+ background: #e5e5e5;
+ -webkit-box-shadow: inset 1px 1px 5px blueviolet;
+ -moz-box-shadow: inset 1px 1px 5px blueviolet;
+ box-shadow: inset 30px 20px
+}
+
+</style>
+
+</head>
+<body>
+  
+  <table>
+    <!--THIS IS ROW 1-->
+    <tr>
+      <td colspan="3">
+        <input type="text" id="result" disabled >
+      </td>
+      <td><input type="button" onclick="clearScreen()" value="C"></td>
+   
+    </tr>
+   
+   <!--THIS IS ROW 2-->
+    <tr>
+      <td><input type="button" value="1" onclick="display('1')" ></td>
+      <td><input type="button" value="2" onclick="display('2')"></td>
+      <td><input type="button" value="3" onclick="display('3')"></td>
+      <td><input type="button" value="/" onclick="division('/')"></td>
+    </tr>
+    
+    <!--THIS IS ROW 3-->
+     <tr>
+       <td><input type="button" value="4" onclick="display('4')" ></td>
+       <td><input type="button" value="5" onclick="display('5')"></td>
+       <td><input type="button" value="6" onclick="display('6')"></td>
+       <td><input type="button" value="*" onclick="multiplication('*')"></td>
+     </tr>
+     
+     <!--THIS IS ROW 4-->
+      <tr>
+        <td><input type="button" value="7" onclick="display('7')"></td>
+        <td><input type="button" value="8" onclick="display('8')"></td>
+        <td><input type="button" value="9" onclick="display('9')"></td>
+        <td><input type="button" value="-" onclick="subtraction('-')"></td>
+      </tr>
+      
+      <!--THIS IS ROW 5-->
+       <tr>
+         <td><input type="button" value="." onclick="display('.')" ></td>
+         <td><input type="button" value="0" onclick="display('0')" ></td>
+         <td><input type="button" value="=" onclick="calculate()" ></td>
+         <td><input type="button" value="+" onclick="addition('+')"></td>
+       </tr>
+  </table>
+  
+<script>
+   let currentInput = "";
+   let currentOperator = "";
+   
+   function clearScreen(){
+     currentInput = '';
+     currentOperator = '';
+     document.getElementById('result').value = ''; }
+   
+   function display(number){
+     currentInput += number;
+     document.getElementById('result').value = currentInput;}
+   
+   function addition(){
+     currentOperator = "+";
+     currentInput += currentOperator;
+     document.getElementById('result').value = currentInput;}
+   
+   function subtraction(){
+     currentOperator = "-";
+     currentInput += currentOperator;
+     document.getElementById('result').value = currentInput;}
+   
+   function multiplication(){
+     currentOperator = "*";
+     currentInput += currentOperator;
+     document.getElementById('result').value = currentInput;}
+   
+   function division() {
+     currentOperator = "/";
+     currentInput += currentOperator;
+     document.getElementById('result').value = currentInput;}
+   
+   function calculate() {
+     const result = eval(currentInput);
+     console.log(result);
+     document.getElementById('result').value = result;
+     currentInput.toString();
+     currentOperator = '';}
+
+
+
+
+
+
+ </script>
+  
+</body>
+</html>
